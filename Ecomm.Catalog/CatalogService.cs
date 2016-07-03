@@ -5,6 +5,8 @@ namespace Ecomm.Catalog
 {
     class CatalogService : ICatalogService
     {
+
+
         public IEnumerable<Product> ReadProducts()
         {
             throw new System.NotImplementedException();

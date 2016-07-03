@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecomm.Catalog", "Ecomm.Cata
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{ED25988A-9CE1-41B9-9D84-D897F7AB7107}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataProviders", "DataProviders", "{540EC080-FE42-4BCA-8266-638BE33AE115}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecomm.Catalog.DataProviders.Xml", "Ecomm.Catalog.DataProviders.Xml\Ecomm.Catalog.DataProviders.Xml.csproj", "{67C84AE9-71F0-4E4A-AF5E-6E8B4E1C8CAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +26,17 @@ Global
 		{8CE89844-5EB0-4B1B-97AA-8CE8ACA22E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CE89844-5EB0-4B1B-97AA-8CE8ACA22E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CE89844-5EB0-4B1B-97AA-8CE8ACA22E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67C84AE9-71F0-4E4A-AF5E-6E8B4E1C8CAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67C84AE9-71F0-4E4A-AF5E-6E8B4E1C8CAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67C84AE9-71F0-4E4A-AF5E-6E8B4E1C8CAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67C84AE9-71F0-4E4A-AF5E-6E8B4E1C8CAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8CE89844-5EB0-4B1B-97AA-8CE8ACA22E0F} = {ED25988A-9CE1-41B9-9D84-D897F7AB7107}
+		{540EC080-FE42-4BCA-8266-638BE33AE115} = {ED25988A-9CE1-41B9-9D84-D897F7AB7107}
+		{67C84AE9-71F0-4E4A-AF5E-6E8B4E1C8CAA} = {540EC080-FE42-4BCA-8266-638BE33AE115}
 	EndGlobalSection
 EndGlobal
