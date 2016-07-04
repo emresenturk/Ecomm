@@ -48,5 +48,9 @@ namespace Ecomm.Commerce.Data
         {
             get { return TotalPriceBeforeTax + TaxAmount; }
         }
+
+        public DateTime DateCreated { get; set; }
+
+        public DateTime? DateUpdated { get; set; }
     }
 }
