@@ -9,6 +9,8 @@ namespace Ecomm.Commerce.Data
         [Key]
         public int Id { get; set; }
 
+        public string ReferenceCode { get; set; }
+
         public string OwnerIdentifier { get; set; }
 
         public DateTime DateCreated { get; set; }
