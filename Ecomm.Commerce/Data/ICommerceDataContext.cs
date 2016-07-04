@@ -12,6 +12,8 @@ namespace Ecomm.Commerce.Data
 
         DbSet<Order> Orders { get; set; }
 
-        DbSet<OrderItem> OrderItems { get; set; } 
+        DbSet<OrderItem> OrderItems { get; set; }
+
+        int SaveChanges();
     }
 }

@@ -11,6 +11,8 @@ namespace Ecomm.Commerce.Data
         [Key]
         public int Id { get; set; }
 
+        public Guid UuId { get; set; }
+
         public string OwnerIdentifier { get; set; }
 
         public virtual ICollection<ShoppingCartItem> Items { get; set; }

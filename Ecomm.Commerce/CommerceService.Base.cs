@@ -9,11 +9,11 @@ namespace Ecomm.Commerce
 {
     public partial class CommerceService : ICommerceService
     {
-        private readonly Func<ICommerceDataContext> contextFactory;
+        private readonly Func<ICommerceDataContext> contextFunc;
 
-        public CommerceService(Func<ICommerceDataContext> contextFactory)
+        public CommerceService(Func<ICommerceDataContext> contextFunc)
         {
-            this.contextFactory = contextFactory;
+            this.contextFunc = contextFunc;
         }
 
 

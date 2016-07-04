@@ -5,6 +5,8 @@ namespace Ecomm.Commerce
 {
     public interface ICommerceService
     {
+        #region Cart
+
         void CreateShoppingCart(Guid identifier);
 
         void CreateShoppingCart(string ownerIdentifier);
@@ -22,5 +24,14 @@ namespace Ecomm.Commerce
         ShoppingCart RetrieveCart(Guid identifier);
 
         ShoppingCart RetrieveCart(string ownerIdentifier);
+
+        #endregion
+
+        #region Order
+
+
+        #endregion
+
+
     }
 }
