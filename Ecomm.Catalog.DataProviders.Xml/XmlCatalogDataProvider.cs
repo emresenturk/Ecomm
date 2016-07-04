@@ -17,18 +17,21 @@ namespace Ecomm.Catalog.DataProviders.Xml
         public XmlCatalogDataProvider(string xmlFileName)
         {
             this.xmlFileName = xmlFileName;
-            root = new XElement(Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), xmlFileName));
+            root = XElement.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\App_Data", xmlFileName));
         }
 
         public int Count()
         {
-            return root.Descendants().Count();
+            var products = root.Descendants("Products").First();
+            return products.Descendants().Where(d => d.Parent == products).Count();
         }
 
         public int Count(Expression<Func<Product, bool>> expression)
         {
             var predicate = expression.Compile();
-            return root.Descendants().Count(x => predicate(x.ToProduct()));
+            var products = root.Descendants("Products").First();
+            var count = products.Descendants().Where(d => d.Parent == products).Count(x => predicate(x.ToProduct()));
+            return count;
         }
 
         public IQueryable<Product> CreateQuery()

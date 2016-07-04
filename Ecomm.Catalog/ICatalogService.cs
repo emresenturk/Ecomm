@@ -7,7 +7,7 @@ namespace Ecomm.Catalog
     {
         IEnumerable<Product> ReadProducts();
 
-        IList<Product> ListProducts(int? from, int? to);
+        IList<Product> ListProducts(int? @from, int? to, string searchExpression);
 
         Product RetrieveProduct(int id);
 

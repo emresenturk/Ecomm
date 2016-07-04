@@ -1,13 +1,25 @@
 ﻿using System;
+using System.Configuration;
+using System.Linq;
 using Ecomm.Catalog.Providers;
 
 namespace Ecomm.Catalog.DataProviders.Xml
 {
     public class XmlCatalogDataProdivderFactory : ICatalogDataProviderFactory
     {
-        public ICatalogDataProvider Create()
+        private readonly string filename;
+
+        public XmlCatalogDataProdivderFactory()
         {
-            throw new NotImplementedException();
+            filename =
+                ConfigurationManager.ConnectionStrings.OfType<ConnectionStringSettings>()
+                    .FirstOrDefault(css => css.ProviderName == "Ecomm.Catalog.DataProviders.Xml")
+                    .ConnectionString;
+        }
+
+        public ICatalogDataProvider CreateProvider()
+        {
+            return new XmlCatalogDataProvider(filename);
         }
     }
 }

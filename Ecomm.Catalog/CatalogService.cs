@@ -1,30 +1,86 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Ecomm.Catalog.Data;
+using Ecomm.Catalog.Providers;
 
 namespace Ecomm.Catalog
 {
-    class CatalogService : ICatalogService
+    public class CatalogService : ICatalogService
     {
+        private readonly ICatalogDataProviderFactory dataProviderFactory;
 
+        public CatalogService(ICatalogDataProviderFactory dataProviderFactory)
+        {
+            this.dataProviderFactory = dataProviderFactory;
+        }
 
         public IEnumerable<Product> ReadProducts()
         {
-            throw new System.NotImplementedException();
+            using (var provider = dataProviderFactory.CreateProvider())
+            {
+                foreach (var product in provider.CreateQuery())
+                {
+                    yield return product;
+                }
+            }
         }
 
-        public IList<Product> ListProducts(int? @from, int? to)
+        public IList<Product> ListProducts(int? @from, int? to, string searchExpression)
         {
-            throw new System.NotImplementedException();
+            IList<Product> products;
+
+            using (var provider = dataProviderFactory.CreateProvider())
+            {
+                var query = provider.CreateQuery();
+                if (!string.IsNullOrEmpty(searchExpression))
+                {
+                    query =
+                        query.Where(
+                            p => p.Name.Contains(searchExpression) || p.ShortDescription.Contains(searchExpression));
+                }
+
+                if (@from.HasValue)
+                {
+                    query = query.Skip(@from.Value);
+                }
+
+                if (to.HasValue)
+                {
+                    query = query.Take(to.Value - @from.GetValueOrDefault());
+                }
+
+                products = query.ToList();
+            }
+
+            return products;
         }
 
         public Product RetrieveProduct(int id)
         {
-            throw new System.NotImplementedException();
+            Product product;
+            using (var provider = dataProviderFactory.CreateProvider())
+            {
+                product = provider.CreateQuery().FirstOrDefault(p => p.Id == id);
+            }
+
+            return product;
         }
 
         public Product RetrieveProduct(string erpCode)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrEmpty(erpCode))
+            {
+                throw new ArgumentNullException("erpCode", "Invalid ERP Code!");
+            }
+
+            Product product;
+            using (var provider = dataProviderFactory.CreateProvider())
+            {
+                product = provider.CreateQuery().FirstOrDefault(p => p.ERPCode == erpCode);
+            }
+
+            return product;
         }
     }
 }
