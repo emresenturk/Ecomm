@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 using Ecomm.Catalog.Data;
 using Ecomm.Catalog.Providers;
 
@@ -8,24 +11,33 @@ namespace Ecomm.Catalog.DataProviders.Xml
 {
     public class XmlCatalogDataProvider : ICatalogDataProvider
     {
-        public void Dispose()
+        private string xmlFileName;
+        private XElement root;
+
+        public XmlCatalogDataProvider(string xmlFileName)
         {
-            throw new NotImplementedException();
+            this.xmlFileName = xmlFileName;
+            root = new XElement(Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), xmlFileName));
         }
 
         public int Count()
         {
-            throw new NotImplementedException();
+            return root.Descendants().Count();
         }
 
         public int Count(Expression<Func<Product, bool>> expression)
         {
-            throw new NotImplementedException();
+            var predicate = expression.Compile();
+            return root.Descendants().Count(x => predicate(x.ToProduct()));
         }
 
         public IQueryable<Product> CreateQuery()
         {
-            throw new NotImplementedException();
+            return root.Descendants().Select(d => d.ToProduct()).AsQueryable();
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
