@@ -5,7 +5,15 @@ namespace Ecomm.Commerce
 {
     public interface ICommerceService
     {
-        bool AddItemToCart(ShoppingCartItem item);
+        void CreateShoppingCart(Guid identifier);
+
+        void CreateShoppingCart(string ownerIdentifier);
+
+        void MergeShoppingCart(string ownerIdentifier, params Guid[] cartIdentifiers);
+
+        bool AddItemToCart(Guid identifier, ShoppingCartItem item);
+
+        bool AddItemToCart(string ownerIdentifier, ShoppingCartItem item);
 
         bool ChangeCartItemQuantity(int id, int newQuantity);
 
