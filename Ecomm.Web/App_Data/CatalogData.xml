@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catalog>
+    <Products>
+        <Product>
+            <Id>1</Id>
+            <Name>Some Product</Name>
+            <ERPCode>SP1231</ERPCode>
+            <ShortDescription>Some product's short description</ShortDescription>
+            <LongDescription>Some product's long description</LongDescription>
+            <UnitPrice>12.5</UnitPrice>
+            <TaxRatio>0.08</TaxRatio>
+        </Product>
+        <Product>
+            <Id>2</Id>
+            <Name>Some Other Product</Name>
+            <ERPCode>SP12342</ERPCode>
+            <ShortDescription>Some other product's short description</ShortDescription>
+            <LongDescription>Some other product's long description</LongDescription>
+            <UnitPrice>22.67</UnitPrice>
+            <TaxRatio>0.18</TaxRatio>
+        </Product>
+        <Product>
+            <Id>3</Id>
+            <Name>Some Product</Name>
+            <ERPCode>SP1233</ERPCode>
+            <ShortDescription>Some product's short description</ShortDescription>
+            <LongDescription>Some product's long description</LongDescription>
+            <UnitPrice>12.5</UnitPrice>
+            <TaxRatio>0.08</TaxRatio>
+        </Product>
+        <Product>
+            <Id>4</Id>
+            <Name>Some Other Product</Name>
+            <ERPCode>SP1234</ERPCode>
+            <ShortDescription>Some other product's short description</ShortDescription>
+            <LongDescription>Some other product's long description</LongDescription>
+            <UnitPrice>22.67</UnitPrice>
+            <TaxRatio>0.18</TaxRatio>
+        </Product>
+        <Product>
+            <Id>5</Id>
+            <Name>Some Product</Name>
+            <ERPCode>SP1235</ERPCode>
+            <ShortDescription>Some product's short description</ShortDescription>
+            <LongDescription>Some product's long description</LongDescription>
+            <UnitPrice>12.5</UnitPrice>
+            <TaxRatio>0.08</TaxRatio>
+        </Product>
+        <Product>
+            <Id>6</Id>
+            <Name>Some Other Product</Name>
+            <ERPCode>SP12346</ERPCode>
+            <ShortDescription>Some other product's short description</ShortDescription>
+            <LongDescription>Some other product's long description</LongDescription>
+            <UnitPrice>22.67</UnitPrice>
+            <TaxRatio>0.18</TaxRatio>
+        </Product>
+        <Product>
+            <Id>7</Id>
+            <Name>Some Product</Name>
+            <ERPCode>SP1237</ERPCode>
+            <ShortDescription>Some product's short description</ShortDescription>
+            <LongDescription>Some product's long description</LongDescription>
+            <UnitPrice>12.5</UnitPrice>
+            <TaxRatio>0.08</TaxRatio>
+        </Product>
+        <Product>
+            <Id>8</Id>
+            <Name>Some Other Product</Name>
+            <ERPCode>SP1238</ERPCode>
+            <ShortDescription>Some other product's short description</ShortDescription>
+            <LongDescription>Some other product's long description</LongDescription>
+            <UnitPrice>22.67</UnitPrice>
+            <TaxRatio>0.18</TaxRatio>
+        </Product>
+        <Product>
+            <Id>9</Id>
+            <Name>Some Product</Name>
+            <ERPCode>SP1239</ERPCode>
+            <ShortDescription>Some product's short description</ShortDescription>
+            <LongDescription>Some product's long description</LongDescription>
+            <UnitPrice>12.5</UnitPrice>
+            <TaxRatio>0.08</TaxRatio>
+        </Product>
+        <Product>
+            <Id>10</Id>
+            <Name>Some Other Product</Name>
+            <ERPCode>SP12310</ERPCode>
+            <ShortDescription>Some other product's short description</ShortDescription>
+            <LongDescription>Some other product's long description</LongDescription>
+            <UnitPrice>22.67</UnitPrice>
+            <TaxRatio>0.18</TaxRatio>
+        </Product>
+        <Product>
+            <Id>11</Id>
+            <Name>Some Product</Name>
+            <ERPCode>SP12311</ERPCode>
+            <ShortDescription>Some product's short description</ShortDescription>
+            <LongDescription>Some product's long description</LongDescription>
+            <UnitPrice>12.5</UnitPrice>
+            <TaxRatio>0.08</TaxRatio>
+        </Product>
+        <Product>
+            <Id>12</Id>
+            <Name>Some Other Product</Name>
+            <ERPCode>SP12312</ERPCode>
+            <ShortDescription>Some other product's short description</ShortDescription>
+            <LongDescription>Some other product's long description</LongDescription>
+            <UnitPrice>22.67</UnitPrice>
+            <TaxRatio>0.18</TaxRatio>
+        </Product>
+    </Products>
+</Catalog>

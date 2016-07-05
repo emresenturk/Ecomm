@@ -1,0 +1,11 @@
+﻿@model Ecomm.Commerce.Data.ShoppingCart
+
+<div class="row">
+    @foreach (var item in Model.Items)
+    {
+        <div class="col-md-12">
+            <h5>@item.Name &times;@item.Quantity </h5>
+            <p>@item.TotalPrice.ToString("##,###.00")</p>
+        </div>
+    }
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catalog>
+	<Products>
+		<Product>
+			<Id>1</Id>
+			<Name>Some Product</Name>
+			<ERPCode>SP1234</ERPCode>
+			<ShortDescription>Some product's short description</ShortDescription>
+			<LongDescription>Some product's long description</LongDescription>
+			<UnitPrice>12.5</UnitPrice>
+			<TaxRatio>0.08</TaxRatio>
+		</Product>
+		<Product>
+			<Id>2</Id>
+			<Name>Some Other Product</Name>
+			<ERPCode>SP12345</ERPCode>
+			<ShortDescription>Some other product's short description</ShortDescription>
+			<LongDescription>Some other product's long description</LongDescription>
+			<UnitPrice>22.67</UnitPrice>
+			<TaxRatio>0.18</TaxRatio>
+		</Product>
+	</Products>
+</Catalog>
