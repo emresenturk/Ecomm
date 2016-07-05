@@ -11,7 +11,7 @@ namespace Ecomm.Commerce
         {
             using (var context = contextFunc())
             {
-                var shoppingCart = new ShoppingCart {UuId = identifier};
+                var shoppingCart = new ShoppingCart {UuId = identifier, DateCreated = DateTime.UtcNow};
                 context.ShoppingCarts.Add(shoppingCart);
                 context.SaveChanges();
             }
@@ -21,7 +21,7 @@ namespace Ecomm.Commerce
         {
             using (var context = contextFunc())
             {
-                var shoppingCart = new ShoppingCart { OwnerIdentifier = ownerIdentifier, UuId = Guid.NewGuid() };
+                var shoppingCart = new ShoppingCart { OwnerIdentifier = ownerIdentifier, UuId = Guid.NewGuid(), DateCreated = DateTime.UtcNow};
                 context.ShoppingCarts.Add(shoppingCart);
                 context.SaveChanges();
             }
@@ -106,26 +106,19 @@ namespace Ecomm.Commerce
                     throw new NullReferenceException(string.Format("Cart item with id \"{0}\" not found.", id));
                 }
 
-                cartItem.Quantity = newQuantity;
-
-                return context.SaveChanges() > 0;
-            }
-        }
-
-        public bool ChangeCartItemQuantity(string erpCode, int newQuantity)
-        {
-            using (var context = contextFunc())
-            {
-                var cartItem = context.ShoppingCartItems.FirstOrDefault(i => i.ERPCode == erpCode);
-                if (cartItem == null)
+                if (newQuantity < 1)
                 {
-                    throw new NullReferenceException(string.Format("Cart item with erp code \"{0}\" not found.", erpCode));
+                    context.ShoppingCartItems.Remove(cartItem);
+                }
+                else
+                {
+                    cartItem.Quantity = newQuantity;
                 }
 
-                cartItem.Quantity = newQuantity;
                 return context.SaveChanges() > 0;
             }
         }
+
 
         public ShoppingCart RetrieveCart(Guid identifier)
         {
@@ -151,11 +144,14 @@ namespace Ecomm.Commerce
         {
             if (cart.Items.Any(i => i.ERPCode == item.ERPCode))
             {
+                item.DateUpdated = DateTime.UtcNow;
                 cart.Items.First(i => i.ERPCode == item.ERPCode).Quantity += item.Quantity;
             }
             else
             {
+                item.DateCreated = DateTime.UtcNow;
                 cart.Items.Add(item);
+                cart.DateUpdated = DateTime.UtcNow;
             }
 
             return context.SaveChanges() > 0;

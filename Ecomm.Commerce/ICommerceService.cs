@@ -19,8 +19,6 @@ namespace Ecomm.Commerce
 
         bool ChangeCartItemQuantity(int id, int newQuantity);
 
-        bool ChangeCartItemQuantity(string erpCode, int newQuantity);
-
         ShoppingCart RetrieveCart(Guid identifier);
 
         ShoppingCart RetrieveCart(string ownerIdentifier);

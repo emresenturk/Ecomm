@@ -1,0 +1,10 @@
+﻿@model Ecomm.Commerce.Data.ShoppingCart
+
+@if (Model == null)
+{
+    <a href="@Url.Action("Index", "Cart")">Cart is empty</a>
+}
+else
+{
+    <a href="@Url.Action("Index", "Cart")">Cart has (@Model.Items.Sum(i => i.Quantity)) Items</a>
+}

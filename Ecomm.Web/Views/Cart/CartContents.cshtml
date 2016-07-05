@@ -1,0 +1,41 @@
+﻿@model Ecomm.Commerce.Data.ShoppingCart
+
+<table id="ShoppingCartItems">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>VAT</th>
+            <th>Total Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.UnitPrice.ToString("##,###.00")</td>
+                <td>@item.TaxRatio.ToString("P0")</td>
+                <td>@item.TotalPrice.ToString("##,###.00")</td>
+                <td>
+                    <button name="RemoveFromCart" type="button" value="@item.Id" class="btn btn-sm btn-danger">
+                        &times;
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Total</td>
+            <td>@Model.TotalPrice.ToString("##,###.00")</td>
+        </tr>
+    </tfoot>
+</table>
+<div class="col-md-12">
+    <div class="col-md-6"></div>
+    <div class="col-md-6"><a href="@Url.Action("Index", "Checkout")" class="btn btn-success">Continue To Checkout</a></div>
+</div>

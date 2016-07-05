@@ -11,6 +11,7 @@
     }).done(function(response) {
         $("#Products li:not(#ProductTemplate)").remove();
         $("#Products").append(response);
+        initListingCartButton();
         if (currentPage > 1) {
             $("#ShowPreviousListingPage").show();
         }
@@ -30,6 +31,7 @@ $("#ShowPreviousListingPage").click(function () {
     }).done(function (response) {
         $("#Products li:not(#ProductTemplate)").remove();
         $("#Products").append(response);
+        initListingCartButton();
         if (currentPage === 1) {
             $("#ShowPreviousListingPage").hide();
         }

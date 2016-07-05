@@ -29,8 +29,21 @@ ul#Products li {
     vertical-align: top;
     *display: inline;
     *zoom: 1;
+    border: 1px solid #ddd;
+    margin: 2px;
+    padding: 2px;
 }
 
 ul#Products li img {
     width: 180px;
+}
+
+table#ShoppingCartItems td, table#ShoppingCartItems th {
+    padding: 4px;
+    font-size: 1.2em;
+}
+
+table#ShoppingCartItems tfoot td {
+    font-size: 1.4em;
+    font-weight: bold;
 }

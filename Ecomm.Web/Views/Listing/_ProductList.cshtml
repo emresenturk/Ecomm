@@ -3,11 +3,14 @@
 {
     <li>
         <a href="@Url.Action("Product", new {erpCode = product.ERPCode})" class="link">
-            <img class="image" src="@Url.Content("~/Content/Images/noImg.jpg")" />
+            <img class="image" src="@Url.Content("~/Content/Images/noImg.jpg")"/>
             <h4 class="name">@product.Name</h4>
             <p>
                 <span class="price">@product.UnitPrice.ToString("##,###.00")</span> + <span class="tax">@product.TaxRatio.ToString("P")</span> VAT
             </p>
         </a>
+        <p>
+            <button name="AddToCart" value="@product.ERPCode">Add To Cart</button>
+        </p>
     </li>
 }
