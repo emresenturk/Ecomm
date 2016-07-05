@@ -81,13 +81,7 @@ namespace Ecomm.Web.Controllers
             return Json(new {Message = "Unable to add item to cart!"}, JsonRequestBehavior.AllowGet);
         }
 
-        private ShoppingCart GetCart()
-        {
-            var cart = User.Identity.IsAuthenticated
-                ? commerceService.RetrieveCart(User.Identity.Name)
-                : commerceService.RetrieveCart(GetCartIdentifier());
-            return cart;
-        }
+        
 
         public ActionResult UpdateCartQuantity(int id, int newQuantity)
         {
@@ -111,6 +105,15 @@ namespace Ecomm.Web.Controllers
 
             Response.StatusCode = (int) HttpStatusCode.Conflict;
             return Json(new {Message = "Unable to modify cart item!"}, JsonRequestBehavior.AllowGet);
+        }
+
+
+        private ShoppingCart GetCart()
+        {
+            var cart = User.Identity.IsAuthenticated
+                ? commerceService.RetrieveCart(User.Identity.Name)
+                : commerceService.RetrieveCart(GetCartIdentifier());
+            return cart;
         }
 
         private Guid GetCartIdentifier()

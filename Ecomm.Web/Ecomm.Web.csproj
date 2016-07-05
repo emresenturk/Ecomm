@@ -209,11 +209,16 @@
     <Compile Include="Migrations\201607051344102_v2.Designer.cs">
       <DependentUpon>201607051344102_v2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607052011329_v3.cs" />
+    <Compile Include="Migrations\201607052011329_v3.Designer.cs">
+      <DependentUpon>201607052011329_v3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -286,6 +291,8 @@
     <None Include="Views\Cart\CartContents.cshtml" />
     <None Include="Views\Cart\CartSummary.cshtml" />
     <None Include="Views\Cart\Index.cshtml" />
+    <None Include="Views\Checkout\CheckoutCartSummary.cshtml" />
+    <None Include="Views\Checkout\CheckoutCompleted.cshtml" />
     <None Include="Views\Checkout\Index.cshtml" />
     <None Include="Views\Listing\Product.cshtml" />
     <None Include="Views\Listing\Products.cshtml" />
@@ -306,6 +313,9 @@
     <EmbeddedResource Include="Migrations\201607051344102_v2.resx">
       <DependentUpon>201607051344102_v2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607052011329_v3.resx">
+      <DependentUpon>201607052011329_v3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ecomm.Catalog.DataProviders.Xml\Ecomm.Catalog.DataProviders.Xml.csproj">
@@ -319,6 +329,10 @@
     <ProjectReference Include="..\Ecomm.Commerce\Ecomm.Commerce.csproj">
       <Project>{e79ccbba-3f9f-4bd6-8291-0d982fdf8418}</Project>
       <Name>Ecomm.Commerce</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ecomm.Shipment\Ecomm.Shipment.csproj">
+      <Project>{ae4aa6bf-3ca9-4057-a9e3-a650cd066371}</Project>
+      <Name>Ecomm.Shipment</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

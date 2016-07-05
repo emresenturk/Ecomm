@@ -8,6 +8,7 @@ using Ecomm.Catalog;
 using Ecomm.Catalog.DataProviders.Xml;
 using Ecomm.Catalog.Providers;
 using Ecomm.Commerce;
+using Ecomm.Shipment;
 using Ecomm.Web.Models;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
@@ -44,6 +45,8 @@ namespace Ecomm.Web
             {
                 return new CommerceService(() => new ApplicationDbContext());
             });
+
+            container.RegisterSingleton<IShipmentService>(() => {return new ShipmentService(() => new ApplicationDbContext());});
         }
     }
 }
