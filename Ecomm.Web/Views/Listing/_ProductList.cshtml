@@ -1,0 +1,13 @@
+﻿@model IList<Ecomm.Catalog.Data.Product>
+@foreach (var product in Model)
+{
+    <li>
+        <a href="@Url.Action("Product", new {erpCode = product.ERPCode})" class="link">
+            <img class="image" src="@Url.Content("~/Content/Images/noImg.jpg")" />
+            <h4 class="name">@product.Name</h4>
+            <p>
+                <span class="price">@product.UnitPrice.ToString("##,###.00")</span> + <span class="tax">@product.TaxRatio.ToString("P")</span> VAT
+            </p>
+        </a>
+    </li>
+}

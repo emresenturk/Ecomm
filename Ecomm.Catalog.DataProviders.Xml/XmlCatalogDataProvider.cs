@@ -17,7 +17,7 @@ namespace Ecomm.Catalog.DataProviders.Xml
         public XmlCatalogDataProvider(string xmlFileName)
         {
             this.xmlFileName = xmlFileName;
-            root = XElement.Load(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\App_Data", xmlFileName));
+            root = XElement.Load(Path.Combine(AppDomain.CurrentDomain.GetData("DataDirectory").ToString(), xmlFileName));
         }
 
         public int Count()
@@ -36,7 +36,7 @@ namespace Ecomm.Catalog.DataProviders.Xml
 
         public IQueryable<Product> CreateQuery()
         {
-            return root.Descendants().Select(d => d.ToProduct()).AsQueryable();
+            return root.Descendants("Product").Select(d => d.ToProduct()).AsQueryable();
         }
 
         public void Dispose()

@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+ul#Products li {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+}
+
+ul#Products li img {
+    width: 180px;
+}

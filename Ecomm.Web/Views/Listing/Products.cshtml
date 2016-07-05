@@ -1,0 +1,20 @@
+﻿@model IList<Ecomm.Catalog.Data.Product>
+
+<ul id="Products">
+    <li id="ProductTemplate" style="display: none;">
+        <a href="#" class="link">
+            <img class="image" src="@Url.Content("~/Content/Images/noImg.jpg")"/>
+            <h4 class="name"></h4>
+            <p><span class="price"></span> + <span class="tax"></span> VAT
+            </p>
+        </a>
+    </li>
+    @Html.Partial("_ProductList")
+</ul>
+<nav>
+    <ul class="pager">
+        <input type="hidden" value="1" id="CurrentPage"/>
+        <li><a href="javascript:;" id="ShowPreviousListingPage" @(ViewBag.CurrentPage < 2 ? "style=display:none;" : string.Empty)>Previous</a></li>
+        <li><a href="javascript:;" id="ShowNextListingPage">Next</a></li>
+    </ul>
+</nav>
