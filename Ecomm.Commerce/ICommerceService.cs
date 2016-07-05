@@ -27,9 +27,9 @@ namespace Ecomm.Commerce
 
         #region Order
 
-        bool CreateOrder(Guid cartIdentifier);
+        Order CreateOrder(Guid cartIdentifier);
 
-        bool CreateOrder(string ownerIdentifier);
+        Order CreateOrder(string ownerIdentifier);
 
         Order RetrieveOrder(string referenceCode);
 

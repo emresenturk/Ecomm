@@ -35,7 +35,8 @@ namespace Ecomm.Commerce
                 var ownerCart = context.ShoppingCarts.FirstOrDefault(c => c.OwnerIdentifier == ownerIdentifier);
                 if (ownerCart == null)
                 {
-                    throw new NullReferenceException(string.Format("No cart found for owner identifier \"{0}\"", ownerIdentifier));
+                    CreateShoppingCart(ownerIdentifier);
+                    ownerCart = context.ShoppingCarts.FirstOrDefault(c => c.OwnerIdentifier == ownerIdentifier);
                 }
 
                 foreach (var identifier in cartIdentifiers)
@@ -54,7 +55,7 @@ namespace Ecomm.Commerce
                         }
                         else
                         {
-                            cartItem.ShoppingCartId = 0;
+                            cartItem.Cart = ownerCart;
                             ownerCart.Items.Add(cartItem);
                         }
                     }

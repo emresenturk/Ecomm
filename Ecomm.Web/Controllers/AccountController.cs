@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Ecomm.Commerce;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -18,8 +19,11 @@ namespace Ecomm.Web.Controllers
         private ApplicationSignInManager _signInManager = null;
         private ApplicationUserManager _userManager = null;
 
-        public AccountController()
+        private readonly ICommerceService commerceService;
+        
+        public AccountController(ICommerceService commerceService)
         {
+            this.commerceService = commerceService;
         }
 
         public ApplicationSignInManager SignInManager
@@ -73,6 +77,15 @@ namespace Ecomm.Web.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+
+                    var cartIdentifier = GetCartIdentifier();
+                    if (cartIdentifier != Guid.Empty)
+                    {
+                        var userName = 
+                        SignInManager.AuthenticationManager.AuthenticationResponseGrant.Identity.Name;
+                        commerceService.MergeShoppingCart(userName, cartIdentifier);
+                    }
+
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -415,6 +428,22 @@ namespace Ecomm.Web.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        private Guid GetCartIdentifier()
+        {
+            if (Session == null)
+            {
+                return Guid.Empty;
+            }
+
+            if (Session["CartIdentifier"] != null)
+            {
+                return (Guid)Session["CartIdentifier"];
+            }
+
+            Session["CartIdentifier"] = Guid.NewGuid();
+            return (Guid)Session["CartIdentifier"];
         }
 
         #region Helpers

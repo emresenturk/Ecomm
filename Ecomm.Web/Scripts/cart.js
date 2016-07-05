@@ -26,7 +26,7 @@ var initListingCartButton = function () {
             async: true,
             cache: false
         }).done(function() {
-            
+            refreshCartSummary();
         });
     });
 };

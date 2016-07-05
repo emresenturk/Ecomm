@@ -8,7 +8,7 @@ namespace Ecomm.Commerce
 {
     public partial class CommerceService
     {
-        public bool CreateOrder(Guid cartIdentifier)
+        public Order CreateOrder(Guid cartIdentifier)
         {
             using (var context = contextFunc())
             {
@@ -22,17 +22,17 @@ namespace Ecomm.Commerce
                 context.Orders.Add(order);
                 if (context.SaveChanges() < 1)
                 {
-                    return false;
+                    throw new ApplicationException("Unable to create order, try again.");
                 }
 
                 context.ShoppingCarts.Remove(cart);
                 context.SaveChanges();
-                return true;
+                return order;
             }
         }
         
 
-        public bool CreateOrder(string ownerIdentifier)
+        public Order CreateOrder(string ownerIdentifier)
         {
             using (var context = contextFunc())
             {
@@ -49,12 +49,12 @@ namespace Ecomm.Commerce
                 context.Orders.Add(order);
                 if (context.SaveChanges() < 1)
                 {
-                    return false;
+                    throw new ApplicationException("Unable to create order, try again.");
                 }
 
                 context.ShoppingCarts.Remove(cart);
                 context.SaveChanges();
-                return true;
+                return order;
             }
         }
 
